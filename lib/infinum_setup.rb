@@ -1,5 +1,3 @@
-require 'pry'
-
 require 'yaml'
 require 'tty-prompt'
 require 'tty-which'
@@ -10,5 +8,4 @@ require 'infinum_setup/install'
 require 'infinum_setup/version'
 
 module InfinumSetup
-  # Your code goes here...
 end
