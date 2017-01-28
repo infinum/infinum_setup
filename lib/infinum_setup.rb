@@ -1,4 +1,5 @@
 require 'yaml'
+require 'open-uri'
 require 'tty-prompt'
 require 'tty-which'
 require 'infinum_setup/base'
