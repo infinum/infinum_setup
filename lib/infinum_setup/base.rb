@@ -35,7 +35,7 @@ module InfinumSetup
     end
 
     def programs(team = 'general')
-      @programs ||= YAML.load_file("programs/#{team}.yml")
+      @programs ||= YAML.load_file("#{File.expand_path('../programs', __FILE__)}/#{team}.yml")
     end
 
     def install_if_agree(programs, command)
