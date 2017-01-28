@@ -5,22 +5,16 @@ module InfinumSetup
     end
 
     def call
-      InfinumSetup::General.install(interactive?)
-      case options.platform
-      when :rails then InfinumSetup::Rails.install(interactive?)
-      when :android then InfinumSetup::Android.install(interactive?)
-      when :ios then InfinumSetup::Ios.install(interactive?)
-      when :design then InfinumSetup::Design.install(interactive?)
-      when :other then InfinumSetup::Other.install(interactive?)
-      end
+      InfinumSetup::General.install(options)
+      InfinumSetup::Team.install(options)
+    end
+
+    def self.select_team
+      TTY::Prompt.new.select('Select your team', %w{rails android ios design pm other})
     end
 
     private
 
     attr_reader :options
-
-    def interactive?
-      options.interactive
-    end
   end
 end

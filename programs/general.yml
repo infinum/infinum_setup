@@ -1,0 +1,23 @@
+brew:
+  mandatory:
+    - git
+    - ack
+    - rbenv
+  optional:
+cask:
+  mandatory:
+  optional:
+    - alfred
+    - dropbox
+    - google-drive
+    - - flycut
+      - jumpcut
+    - spectacle
+    - slack
+    - - google-chrome
+      - firefox
+    - skype
+    - - atom
+      - sublime-text
+    - vlc
+    - the-unarchiver

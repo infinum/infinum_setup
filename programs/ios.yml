@@ -1,0 +1,12 @@
+brew:
+  mandatory:
+  optional:
+cask:
+  mandatory:
+  optional:
+gem:
+  mandatory:
+  optional:
+command:
+  mandatory:
+  optional:

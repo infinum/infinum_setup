@@ -1,0 +1,21 @@
+brew:
+  mandatory:
+    - imagemagick
+    - node
+    - mysql
+    - postgresql
+  optional:
+cask:
+  mandatory:
+  optional:
+    - sequel-pro
+    - postico
+gem:
+  mandatory:
+  optional:
+    - bundler
+    - rails
+command:
+  mandatory:
+  optional:
+    - pow: curl get.pow.cx | sh
