@@ -34,8 +34,8 @@ module InfinumSetup
       end
     end
 
-    def programs(team = 'general')
-      @programs ||= YAML.load(open("https://raw.githubusercontent.com/infinum/infinum_setup/master/programs/#{team}.yml"))
+    def commands(team = 'general')
+      @commands ||= YAML.load(open("https://raw.githubusercontent.com/infinum/infinum_setup/master/programs/#{team}.yml"))
     end
 
     def install_if_agree(programs, command)

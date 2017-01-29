@@ -3,17 +3,7 @@ module InfinumSetup
     def call
       install_xcode_select
       install_brew
-
-      programs['brew']['mandatory'].each do |program|
-        install_program(program, 'brew')
-      end
-
-      install_oh_my_zsh
-      install_latest_ruby
-
-      programs['cask']['optional'].each do |program|
-        install_if_agree(program, 'cask')
-      end
+      install_programs
     end
 
     private
@@ -31,36 +21,29 @@ module InfinumSetup
       execute %(/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)")
     end
 
-    def install_oh_my_zsh
-      return if !simulate? && !prompt.yes?('Install OhMyZsh')
-      prompt.ok 'Installing OhMyZsh'
-      execute %(curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh)
-    end
-
-    def install_latest_ruby
-      return if !simulate? && TTY::Which.exist?('rbenv')
-
-      latest_ruby_version = `rbenv install --list | grep -v - | tail -1 | tr -d '[[:space:]]'`
-      prompt.ok "Installing Ruby #{latest_ruby_version}"
-
-      execute %(rbenv install #{latest_ruby_version})
-      execute %(rbenv global #{latest_ruby_version})
-      execute %(rbenv rehash)
-
-      execute %(if ! grep -qs "rbenv init" ~/.bashrc; then
-        echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-        echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-        eval "$(rbenv init -)"
-      fi)
-
-      execute %(if ! grep -qs "rbenv init" ~/.zshrc; then
-        echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
-        echo 'eval "$(rbenv init -)"' >> ~/.zshrc
-        eval "$(rbenv init -)"
-      fi)
-
-      prompt.ok 'Updating gem system'
-      execute %(gem update --system)
+    def install_programs
+      commands.each do |command_name, command_hash|
+        next unless command_hash
+        command_hash.each do |optionality, programs|
+          next unless programs
+          case programs
+          when Hash
+            programs.each do |program, command|
+              case optionality
+              when 'mandatory' then install_program(program, command)
+              when 'optional' then install_if_agree(program, command)
+              end
+            end
+          else
+            programs.each do |program|
+              case optionality
+              when 'mandatory' then install_program(program, command_name)
+              when 'optional' then install_if_agree(program, command_name)
+              end
+            end
+          end
+        end
+      end
     end
   end
 end
