@@ -64,7 +64,7 @@ module InfinumSetup
         if InfinumSetup.dev?
           YAML.load_file("programs/#{team}.yml")
         else
-          YAML.load(open("https://raw.githubusercontent.com/infinum/infinum_setup/master/programs/#{team}.yml"))
+          YAML.load(open("https://raw.github.com/infinum/infinum_setup/master/programs/#{team}.yml"))
         end
     end
 

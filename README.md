@@ -1,41 +1,60 @@
 # InfinumSetup
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/infinum_setup`. To experiment with that code, run `bin/console` for an interactive prompt.
+This script will help you bootstrap your shiny new laptop. If you need help please direct your questions to @stef.
 
-TODO: Delete this and the text above, and describe your gem
+If you feel there are programs missing please make a PR and I will be happy to merge it!
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Run the following script
 
-```ruby
-gem 'infinum_setup'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install infinum_setup
+    $ sudo gem install infinum_setup
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ infinum_setup
+
+For a more advanced usage you can use:
+
+    $ infinum_setup --interactive
+
+This is an interactive mode where you will be asked if you want to install optional programs/packages
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### Content of program/#{team}.yml files
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Example:
+
+``` ruby
+brew:
+  mandatory:
+    - imagemagick
+    - node
+    - mysql
+    - postgresql
+  optional:
+cask:
+  mandatory:
+  optional:
+    - sequel-pro
+    - postico
+gem:
+  mandatory:
+  optional:
+    - bundler
+    - rails
+command:
+  mandatory:
+  optional:
+    pow: curl get.pow.cx | sh
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/infinum_setup. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/infinum/infinum_setup. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
