@@ -9,6 +9,8 @@ command:
   optional:
     OhMyZsh: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 cask:
+  mandatory:
+    - slack
   optional:
     - alfred
     - dropbox
@@ -16,7 +18,6 @@ cask:
     - - flycut
       - jumpcut
     - spectacle
-    - slack
     - - google-chrome
       - firefox
     - skype

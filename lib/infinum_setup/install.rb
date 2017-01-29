@@ -10,7 +10,7 @@ module InfinumSetup
     end
 
     def self.select_team
-      TTY::Prompt.new.select('Select your team', %w{rails android ios design pm other})
+      TTY::Prompt.new.select('Select your team', %w{rails javascript android ios design pm other})
     end
 
     private

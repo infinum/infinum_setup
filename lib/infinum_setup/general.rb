@@ -9,10 +9,8 @@ module InfinumSetup
     private
 
     def install_xcode_select
-      return if !simulate? && TTY::Which.exist?('xcode-select')
       prompt.ok 'Installing xcode-select'
       execute %(sudo xcode-select --install)
-      execute %(sudo xcodebuild -license)
     end
 
     def install_brew
