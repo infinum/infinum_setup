@@ -22,6 +22,8 @@ This is an interactive mode where you will be asked if you want to install optio
 
 ## Development
 
+During setup two config files are loaded: `general.yml` and `#{team}.yml`. These files are downloaded from the master branch so I do not need to release new gem versions every time we update one of those files :)
+
 ### Content of program/#{team}.yml files
 
 ``` ruby
