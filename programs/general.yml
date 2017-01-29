@@ -3,6 +3,11 @@ brew:
     - git
     - ack
     - rbenv
+command:
+  mandatory:
+    ruby: curl -L https://raw.github.com/infinum/infinum_setup/master/scripts/ruby.sh | sh
+  optional:
+    OhMyZsh: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 cask:
   optional:
     - alfred
@@ -19,8 +24,3 @@ cask:
       - sublime-text
     - vlc
     - the-unarchiver
-command:
-  mandatory:
-    ruby: curl -L https://raw.github.com/infinum/infinum_setup/master/scripts/ruby.sh | sh
-  optional:
-    OhMyZsh: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh

@@ -3,6 +3,7 @@
 require 'rubygems'
 require 'commander/import'
 require 'infinum_setup'
+require 'pry' if InfinumSetup.dev?
 
 program :name, 'infinum_setup'
 program :version, '0.0.1'

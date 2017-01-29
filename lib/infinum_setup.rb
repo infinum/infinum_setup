@@ -9,4 +9,7 @@ require 'infinum_setup/install'
 require 'infinum_setup/version'
 
 module InfinumSetup
+  def self.dev?
+    ENV['SETUP_ENV'] == 'dev'
+  end
 end
