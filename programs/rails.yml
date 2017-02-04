@@ -1,45 +1,47 @@
 bundler:
   mandatory: true
-  install_if_not_interactive: true
   type: gem
   program: bundler
 rails:
   mandatory: true
-  install_if_not_interactive: true
   type: gem
   program: rails
 imagemagick:
   mandatory: true
-  install_if_not_interactive: true
   type: brew
   program: imagemagick
 node:
   mandatory: true
-  install_if_not_interactive: true
   type: brew
   program: node
 mysql:
   mandatory: true
-  install_if_not_interactive: true
   type: brew
   program: mysql
 postgresql:
   mandatory: true
-  install_if_not_interactive: true
   type: brew
   program: postgresql
 sequel-pro:
+  pre_install_comment: Sequel Pro is a fast, easy-to-use Mac database management application for working with MySQL databases.
   mandatory: false
   install_if_not_interactive: true
   type: cask
   program: sequel-pro
 postico:
+  pre_install_comment: A Modern PostgreSQL Client for the Mac
+  post_install_comment: Please ask your team lead to give you the licence for postico
   mandatory: false
   install_if_not_interactive: true
   type: cask
   program: postico
+gitkraken:
+  pre_install_comment: Modern Git GUI
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: gitkraken
 pow:
   mandatory: true
-  install_if_not_interactive: true
   type: script
   script: curl get.pow.cx | sh

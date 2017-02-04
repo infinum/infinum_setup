@@ -1,33 +1,65 @@
-# brew:
-#   mandatory:
-#     - git
-#     - ack
-#     - rbenv
 xcode-select:
   mandatory: true
   type: script
   script: sudo xcode-select --install
+  post_install_comment: A window will popup asking you if you want to install only esential tools or the whole XCode.
 brew:
+  pre_install_comment: If after finishing with xcode installation the last line says "Installing brew" just hit enter!
   mandatory: true
   type: script
   script: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+git:
+  mandatory: true
+  type: brew
+  program: git
 rbenv:
   mandatory: true
   type: brew
   program: rbenv
-OhMyZsh:
+readline:
   mandatory: true
+  type: brew
+  program: readline
+libyaml:
+  mandatory: true
+  type: brew
+  program: libyaml
+libffi:
+  mandatory: true
+  type: brew
+  program: libffi
+OhMyZsh:
+  pre_install_comment: A delightful community-driven framework for managing your zsh configuration.
+  post_install_comment: Take a look at https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview for plugins overview
+  mandatory: false
+  install_if_not_interactive: true
   type: script
   script: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 ruby:
+  pre_install_comment: This will install the lastest ruby version and add rbenv to your .bashrc and .zshrc files
   mandatory: true
   type: script
   script: curl -L https://raw.github.com/infinum/infinum_setup/master/scripts/ruby.sh | sh
+z:
+  pre_install_comment:  After  a  short  learning  phase, z will take you to the most 'frecent' directory that matches ALL of the regexes given on the command line, in order.
+  post_install_comment: Please read `brew info z` for how to enable it. How to use: https://github.com/rupa/z
+  mandatory: false
+  install_if_not_interactive: true
+  type: brew
+  program: z
 alfred:
+  pre_install_comment: App for Mac OS X which boosts your efficiency with hotkeys, keywords, text expansion and more.
+  post_install_comment: Please start alfred once, enable it and disable spotlight (http://apple.stackexchange.com/a/177987). Recommended to enable clipboard history
   mandatory: false
   install_if_not_interactive: true
   type: cask
   program: alfred
+flycut:
+  pre_install_comment: Clean and simple clipboard manager for developers
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: flycut
 chrome:
   mandatory: false
   install_if_not_interactive: true
@@ -49,6 +81,8 @@ google_drive:
   type: cask
   program: google-drive
 spectacle:
+  pre_install_comment: Window control with simple and customizable keyboard shortcuts
+  post_install_comment: How to use: https://github.com/eczarny/spectacle#keyboard-shortcuts
   mandatory: false
   install_if_not_interactive: true
   type: cask
@@ -68,13 +102,20 @@ sublime-text:
   install_if_not_interactive: false
   type: cask
   program: sublime-text
-vcl:
+vlc:
   mandatory: false
   install_if_not_interactive: true
   type: cask
-  program: vcl
+  program: vlc
 the-unarchiver:
+  pre_install_comment: For extracting from archives
   mandatory: false
   install_if_not_interactive: true
   type: cask
   program: the-unarchiver
+flux:
+  pre_install_comment: Flux makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: flux

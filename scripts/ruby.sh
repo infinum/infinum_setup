@@ -9,14 +9,15 @@ echo "Setting $LATEST_RUBY_VERSION to global"
 rbenv global $LATEST_RUBY_VERSION
 rbenv rehash
 
-if ! grep -qs "rbenv init" ~/.bashrc; then
-  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-  echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-  eval "$(rbenv init -)"
+if ! grep -qs "rbenv init" ~/.bash_profile; then
+  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+  echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 fi
 
 if ! grep -qs "rbenv init" ~/.zshrc; then
   echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
   echo 'eval "$(rbenv init -)"' >> ~/.zshrc
-  eval "$(rbenv init -)"
 fi
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
