@@ -19,6 +19,7 @@ module InfinumSetup
     end
 
     def install
+      puts
       prompt.say(pre_install_comment, color: :cyan)
       mandatory? ? install_program : install_if_agree
       prompt.say(post_install_comment, color: :cyan)
