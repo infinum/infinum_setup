@@ -41,8 +41,8 @@ ruby:
   type: script
   script: curl -L https://raw.github.com/infinum/infinum_setup/master/scripts/ruby.sh | sh
 z:
-  pre_install_comment:  After  a  short  learning  phase, z will take you to the most 'frecent' directory that matches ALL of the regexes given on the command line, in order.
-  post_install_comment: Please read `brew info z` for how to enable it. How to use: https://github.com/rupa/z
+  pre_install_comment:  After a short learning phase, z will take you to the most 'frecent' directory that matches ALL of the regexes given on the command line, in order.
+  post_install_comment: "Please read 'brew info z' for how to enable it. How to use: https://github.com/rupa/z"
   mandatory: false
   install_if_not_interactive: true
   type: brew
@@ -82,7 +82,7 @@ google_drive:
   program: google-drive
 spectacle:
   pre_install_comment: Window control with simple and customizable keyboard shortcuts
-  post_install_comment: How to use: https://github.com/eczarny/spectacle#keyboard-shortcuts
+  post_install_comment: "How to use: https://github.com/eczarny/spectacle#keyboard-shortcuts"
   mandatory: false
   install_if_not_interactive: true
   type: cask
