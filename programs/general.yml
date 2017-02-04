@@ -1,27 +1,80 @@
+# brew:
+#   mandatory:
+#     - git
+#     - ack
+#     - rbenv
+xcode-select:
+  mandatory: true
+  type: script
+  script: sudo xcode-select --install
 brew:
-  mandatory:
-    - git
-    - ack
-    - rbenv
-command:
-  mandatory:
-    ruby: curl -L https://raw.github.com/infinum/infinum_setup/master/scripts/ruby.sh | sh
-  optional:
-    OhMyZsh: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-cask:
-  mandatory:
-    - slack
-  optional:
-    - alfred
-    - dropbox
-    - google-drive
-    - - flycut
-      - jumpcut
-    - spectacle
-    - - google-chrome
-      - firefox
-    - skype
-    - - atom
-      - sublime-text
-    - vlc
-    - the-unarchiver
+  mandatory: true
+  type: script
+  script: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+rbenv:
+  mandatory: true
+  type: brew
+  program: rbenv
+OhMyZsh:
+  mandatory: true
+  type: script
+  script: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+ruby:
+  mandatory: true
+  type: script
+  script: curl -L https://raw.github.com/infinum/infinum_setup/master/scripts/ruby.sh | sh
+alfred:
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: alfred
+chrome:
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: google-chrome
+firefox:
+  mandatory: false
+  install_if_not_interactive: false
+  type: cask
+  program: firefox
+dropbox:
+  mandatory: false
+  install_if_not_interactive: false
+  type: cask
+  program: dropbox
+google_drive:
+  mandatory: false
+  install_if_not_interactive: false
+  type: cask
+  program: google-drive
+spectacle:
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: spectacle
+skype:
+  mandatory: false
+  install_if_not_interactive: false
+  type: cask
+  program: skype
+atom:
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: atom
+sublime-text:
+  mandatory: false
+  install_if_not_interactive: false
+  type: cask
+  program: sublime-text
+vcl:
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: vcl
+the-unarchiver:
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: the-unarchiver

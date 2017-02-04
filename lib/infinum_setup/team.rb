@@ -1,10 +1,6 @@
 module InfinumSetup
   class Team < Base
-    def call
-      install_programs
-    end
-
-    def commands
+    def programs
       super(@options.team)
     end
   end

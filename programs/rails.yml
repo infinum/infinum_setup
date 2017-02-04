@@ -1,21 +1,45 @@
-brew:
-  mandatory:
-    - imagemagick
-    - node
-    - mysql
-    - postgresql
-  optional:
-cask:
-  mandatory:
-  optional:
-    - sequel-pro
-    - postico
-gem:
-  mandatory:
-  optional:
-    - bundler
-    - rails
-command:
-  mandatory:
-  optional:
-    pow: curl get.pow.cx | sh
+bundler:
+  mandatory: true
+  install_if_not_interactive: true
+  type: gem
+  program: bundler
+rails:
+  mandatory: true
+  install_if_not_interactive: true
+  type: gem
+  program: rails
+imagemagick:
+  mandatory: true
+  install_if_not_interactive: true
+  type: brew
+  program: imagemagick
+node:
+  mandatory: true
+  install_if_not_interactive: true
+  type: brew
+  program: node
+mysql:
+  mandatory: true
+  install_if_not_interactive: true
+  type: brew
+  program: mysql
+postgresql:
+  mandatory: true
+  install_if_not_interactive: true
+  type: brew
+  program: postgresql
+sequel-pro:
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: sequel-pro
+postico:
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: postico
+pow:
+  mandatory: true
+  install_if_not_interactive: true
+  type: script
+  script: curl get.pow.cx | sh
