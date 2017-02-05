@@ -20,6 +20,10 @@ For a more advanced usage you can use:
 
 This is an interactive mode where you will be asked if you want to install optional programs/packages
 
+    $ infinum_setup --verbose
+
+This will print out all the commands that are run
+
 ## Development
 
 During setup two config files are loaded: `general.yml` and `#{team}.yml`. These files are downloaded from the master branch so I do not need to release new gem versions every time we update one of those files :)
@@ -27,90 +31,43 @@ During setup two config files are loaded: `general.yml` and `#{team}.yml`. These
 ### Content of program/#{team}.yml files
 
 ``` ruby
-brew:
-  mandatory:
-    - imagemagick
-    - node
-    - mysql
-    - postgresql
-  optional:
-cask:
-  mandatory:
-  optional:
-    - sequel-pro
-    - - flycut
-      - jumpcut
-    - postico
-gem:
-  mandatory:
-  optional:
-    - bundler
-    - rails
-command:
-  mandatory:
-  optional:
-    pow: curl get.pow.cx | sh
+{program_name}:
+  type: brew/cask/gem/npm/command
+  mandatory: true/false
+  install_if_not_interactive: true/false
+  program: {program}
+  pre_install_comment: A comment to print out before installing
+  post_install_comment: A comment to print out after install
+  post_install_command: eg. open the app
+  script: a script to be run if type is `command`
 ```
 
-### Top level commands
+### command type
 
-There are (for now) 5 top level commands you can use:
+There are (for now) 5 types of programs with which to install:
 
-- brew
-- cask
-- gem
-- npm
-- command
+- brew => `brew install {program}`
+- cask => `brew cask install {program}`
+- gem  => `gem install {program}`
+- npm  => `npm -g install {program}`
+- command => `{script}`
 
-### Optionality
+### Mandatory
 
-Next level is the optionality of the programs. If you feel like a program must be installed put it under `mandatory` key.
-If you feel like a program is a nice to have but not mandatory put it under `optional` key. If `infinum_setup` is run in interactive mode a user will be prompted for each optional program.
+Set this setting to `true` if you feel like a program must be installed.
+If `infinum_setup` is run in interactive mode a user will be prompted for each non mandatroy program.
 
-### Programs
+### Install if not interactive
 
-For each of the top level commands except `command`, the script requires an array of programs.
+This will come into effect if a program is not mandatory and the `infinum_setup` is not run in interactive mode. With this setting set to `true` the program will be installed otherwise it will be skipped.
 
-``` ruby
-cask:
-  optional:
-    - skype
-    - vcl
-```
+### Pre/post install comment
 
-You can also write an array of programs where in interactive mode the user will be prompted with a multiple select choice, and in non interactive mode the first program will be installed.
+Comments to print out before/after installation.
 
-``` ruby
-cask:
-  optional:
-    - - google-chrome
-      - firefox
-    - slack
-```
+### Post install command
 
-```
-Select programs to install (Use arrow keys, press Space to select and Enter to finish)
-‣ ⬡ google-chrome
-  ⬡ firefox
-```
-
-The `commands` programs expect a hash instead of an array. These commands will be run directly as they are written
-
-``` ruby
-command:
-  mandatory:
-    ruby: curl -L https://raw.github.com/infinum/infinum_setup/master/scripts/ruby.sh | sh
-  optional:
-    OhMyZsh: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-```
-
-```
-Installing ruby
-curl -L https://raw.github.com/infinum/infinum_setup/master/scripts/ruby.sh | sh
-Install OhMyZsh Yes
-Installing OhMyZsh
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-```
+Use this if you want to run a custom command after installation. Eg. `open /Applications/Alfred\ 3.app`
 
 ### Writing your own scripts
 

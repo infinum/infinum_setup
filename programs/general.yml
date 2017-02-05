@@ -58,33 +58,38 @@ alfred:
   install_if_not_interactive: true
   type: cask
   program: alfred
-  post_install_command: open /Application/Alfred 3.app 
+  post_install_command: open /Application/Alfred\ 3.app
 flycut:
   pre_install_comment: Clean and simple clipboard manager for developers
   mandatory: false
   install_if_not_interactive: true
   type: cask
   program: flycut
+  post_install_command: open /Application/Flycut.app
 chrome:
   mandatory: false
   install_if_not_interactive: true
   type: cask
   program: google-chrome
+  post_install_command: open /Application/Google\ Chrome.app
 firefox:
   mandatory: false
   install_if_not_interactive: false
   type: cask
   program: firefox
+  post_install_command: open /Application/Firefox.app
 dropbox:
   mandatory: false
   install_if_not_interactive: false
   type: cask
   program: dropbox
+  post_install_command: open /Application/Dropbox.app
 google_drive:
   mandatory: false
   install_if_not_interactive: false
   type: cask
   program: google-drive
+  post_install_command: open /Application/Google\ Drive.app
 spectacle:
   pre_install_comment: Window control with simple and customizable keyboard shortcuts
   post_install_comment: "How to use: https://github.com/eczarny/spectacle#keyboard-shortcuts"
@@ -92,21 +97,25 @@ spectacle:
   install_if_not_interactive: true
   type: cask
   program: spectacle
+  post_install_command: open /Application/Spectacle.app
 skype:
   mandatory: false
   install_if_not_interactive: false
   type: cask
   program: skype
+  # post_install_command: open /Application/Skype.app
 atom:
   mandatory: false
   install_if_not_interactive: true
   type: cask
   program: atom
+  # post_install_command: open /Application/Atom.app
 sublime-text:
   mandatory: false
   install_if_not_interactive: false
   type: cask
   program: sublime-text
+  # post_install_command: open /Application/Sublime\ Text.app
 vlc:
   mandatory: false
   install_if_not_interactive: true
@@ -124,3 +133,4 @@ flux:
   install_if_not_interactive: true
   type: cask
   program: flux
+  post_install_command: open /Application/Flux.app

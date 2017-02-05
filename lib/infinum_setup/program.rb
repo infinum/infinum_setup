@@ -2,7 +2,7 @@ module InfinumSetup
   class Program
     VALID_KEYS = [
       :mandatory, :pre_install_comment, :post_install_comment, :type, :program, :script,
-      :install_if_not_interactive
+      :install_if_not_interactive, :post_install_command
     ].freeze
 
     attr_reader :settings, :name, :options, :prompt

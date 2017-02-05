@@ -1,15 +1,9 @@
-brew:
-  mandatory:
-  optional:
-cask:
-  mandatory:
-  optional:
-gem:
-  mandatory:
-  optional:
-npm:
-  mandatory:
-  optional:
-command:
-  mandatory:
-  optional:
+{program_name}:
+  type: brew/cask/gem/npm/command
+  mandatory: true/false
+  install_if_not_interactive: true/false
+  program: {program}
+  pre_install_comment: A comment to print out before installing
+  post_install_comment: A comment to print out after install
+  post_install_command: eg. open the app
+  script: a script to be run if type is `command`
