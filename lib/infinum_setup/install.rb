@@ -5,7 +5,7 @@ module InfinumSetup
     end
 
     def call
-      InfinumSetup::General.install(options)
+      # InfinumSetup::General.install(options)
       InfinumSetup::Team.install(options)
     end
 
