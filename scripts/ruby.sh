@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
-LATEST_RUBY_VERSION=`rbenv install --list | grep -v - | tail -1 | tr -d '[[:space:]]'`
-echo "Installing Ruby $LATEST_RUBY_VERSION"
-
-rbenv install $LATEST_RUBY_VERSION
-
-echo "Setting $LATEST_RUBY_VERSION to global"
-rbenv global $LATEST_RUBY_VERSION
-rbenv rehash
-
 if ! grep -qs "rbenv init" ~/.bash_profile; then
   echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
   echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
@@ -21,3 +12,12 @@ fi
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+LATEST_RUBY_VERSION=`rbenv install --list | grep -v - | tail -1 | tr -d '[[:space:]]'`
+echo "Installing Ruby $LATEST_RUBY_VERSION"
+
+rbenv install $LATEST_RUBY_VERSION
+
+echo "Setting $LATEST_RUBY_VERSION to global"
+rbenv global $LATEST_RUBY_VERSION
+rbenv rehash

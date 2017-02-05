@@ -5,12 +5,12 @@ module InfinumSetup
       :install_if_not_interactive
     ].freeze
 
-    attr_reader :settings, :name, :options, :prompt
+    attr_reader :settings, :name, :simulate, :prompt
 
-    def initialize(name, settings, options, prompt)
+    def initialize(name, settings, simulate, prompt)
       @name = name
       @settings = settings
-      @options = options
+      @simulate = simulate
       @prompt = prompt
     end
 
@@ -19,18 +19,9 @@ module InfinumSetup
     end
 
     def install
-      puts
-      prompt.say(pre_install_comment, color: :cyan)
-      mandatory? ? install_program : install_if_agree
-      prompt.say(post_install_comment, color: :cyan)
-    end
-
-    private
-
-    VALID_KEYS.each do |key|
-      define_method key do
-        settings[key.to_s]
-      end
+      prompt.ok "#{name} -- Installing"
+      execute_type
+      prompt.say("#{name} -- #{post_install_comment}", color: :cyan) if post_install_comment
     end
 
     def mandatory?
@@ -41,14 +32,19 @@ module InfinumSetup
       install_if_not_interactive
     end
 
-    def install_if_agree
-      return if !interactive? && !install_if_not_interactive?
-      return if interactive? && !prompt.yes?("Install #{name}")
-      install_program
+    VALID_KEYS.each do |key|
+      define_method key do
+        settings[key.to_s]
+      end
     end
 
-    def install_program
-      prompt.ok "Installing #{name}"
+    private
+
+    def simulate?
+      simulate
+    end
+
+    def execute_type
       case type
       when 'brew' then execute "brew install #{program}"
       when 'cask' then execute "brew cask install #{program}"
@@ -62,18 +58,10 @@ module InfinumSetup
 
     def execute(cmd)
       if simulate?
-        prompt.warn cmd
+        prompt.warn "#{name} -- #{cmd}"
       else
         `#{cmd}`
       end
-    end
-
-    def interactive?
-      options.interactive
-    end
-
-    def simulate?
-      options.simulate
     end
   end
 end
