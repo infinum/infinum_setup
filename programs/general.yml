@@ -4,7 +4,7 @@ xcode-select:
   script: sudo xcode-select --install
   post_install_comment: A window will popup asking you if you want to install only esential tools or the whole XCode.
 brew:
-  pre_install_comment: If after finishing with xcode installation the last line says "Installing brew" just hit enter!
+  pre_install_comment: If after finishing with xcode installation the last line says "brew -- Installing" just hit enter!
   mandatory: true
   type: script
   script: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -36,7 +36,7 @@ OhMyZsh:
   type: script
   script: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 ruby:
-  pre_install_comment: This will install the lastest ruby version and add rbenv to your .bashrc and .zshrc files
+  pre_install_comment: This will install the lastest ruby version and add rbenv to your .bash_profile and .zshrc files. Go grab a coffee
   mandatory: true
   type: script
   script: curl -L https://raw.github.com/infinum/infinum_setup/master/scripts/ruby.sh | sh

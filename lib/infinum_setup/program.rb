@@ -48,7 +48,7 @@ module InfinumSetup
       case type
       when 'brew' then execute "brew install #{program}"
       when 'cask' then execute "brew cask install #{program}"
-      when 'gem' then execute "gem install #{program} --no-document"
+      when 'gem' then execute %(export PATH="$HOME/.rbenv/bin:$PATH" eval "$(rbenv init -)";gem install #{program} --no-document)
       when 'npm' then execute "npm -g install #{program}"
       when 'script' then execute script
       else
