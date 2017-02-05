@@ -10,10 +10,6 @@ imagemagick:
   mandatory: true
   type: brew
   program: imagemagick
-node:
-  mandatory: true
-  type: brew
-  program: node
 mysql:
   mandatory: true
   type: brew

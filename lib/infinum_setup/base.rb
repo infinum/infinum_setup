@@ -31,7 +31,7 @@ module InfinumSetup
             open("https://raw.github.com/infinum/infinum_setup/master/programs/#{team}.yml")
           )
         end.map do |name, settings|
-          Program.new(name, settings, simulate?, prompt)
+          Program.new(name, settings, options, prompt)
         end
     end
 

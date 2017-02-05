@@ -15,6 +15,7 @@ command :install do |c|
   c.syntax = 'infinum_setup'
   c.description = 'Setups your laptop'
   c.option '-i', '--interactive', 'For expierienced users'
+  c.option '-V', '--verbose', 'Print out commands'
   c.option '-s', '--simulate', 'Try before you buy'
   c.action do |_args, options|
     options.team = InfinumSetup::Install.select_team

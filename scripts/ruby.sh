@@ -10,9 +10,6 @@ if ! grep -qs "rbenv init" ~/.zshrc; then
   echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 fi
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
 LATEST_RUBY_VERSION=`rbenv install --list | grep -v - | tail -1 | tr -d '[[:space:]]'`
 echo "Installing Ruby $LATEST_RUBY_VERSION"
 
