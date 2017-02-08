@@ -9,12 +9,9 @@ module InfinumSetup
     end
 
     def call
-      programs.each do |program|
-        next unless will_install?(program)
-        puts
-        prompt.say("#{program.name} -- #{program.pre_install_comment}", color: :cyan) if program.pre_install_comment
-        next if skip_install?(program)
-        program.install
+      return unless programs.is_a?(Hash)
+      programs.map do |name, settings|
+        program_type(settings['type']).new(name, settings, options, prompt).install
       end
     end
 
@@ -30,21 +27,17 @@ module InfinumSetup
           YAML.load(
             open("https://raw.github.com/infinum/infinum_setup/master/programs/#{team}.yml")
           )
-        end.map do |name, settings|
-          Program.new(name, settings, options, prompt)
         end
     end
 
-    def will_install?(program)
-      program.mandatory? ||
-        (!program.mandatory? && interactive?) ||
-        (!program.mandatory? && !interactive? && program.install_if_not_interactive?)
-    end
-
-    def skip_install?(program)
-      !program.mandatory? &&
-        interactive? &&
-        !prompt.yes?("#{program.name} -- Install #{program.name}")
+    def program_type(type)
+      case type
+      when 'brew' then Program::Brew
+      when 'cask' then Program::Cask
+      when 'gem' then Program::Gem
+      when 'npm' then Program::Npm
+      when 'script' then Program::Script
+      end
     end
 
     def prompt

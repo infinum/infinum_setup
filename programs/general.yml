@@ -39,6 +39,14 @@ OhMyZsh:
   install_if_not_interactive: true
   type: script
   script: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+ssh-keygen:
+  pre_install_comment: Will run ssh-keygen
+  post_install_comment: Please add your public key to https://docs.google.com/spreadsheets/d/1Wo4OYVWsCW6I1IxrSzieLkmTiP6XjCjLtyoMmJpnkZg/edit
+  mandatory: false
+  install_if_not_interactive: true
+  type: script
+  script: ssh-keygen
+  custom_install_question: Setup ssh keys with ssh-keygen
 ruby:
   pre_install_comment: This will install the lastest ruby version and add rbenv to your .bash_profile and .zshrc files. Go grab a coffee
   mandatory: true
