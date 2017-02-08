@@ -32,14 +32,13 @@ During setup two config files are loaded: `general.yml` and `#{team}.yml`. These
 
 ``` ruby
 {program_name}:
-  type: brew/cask/gem/npm/command
+  type: brew/cask/gem/npm/script
   mandatory: true/false
   install_if_not_interactive: true/false
   program: {program}
   pre_install_comment: A comment to print out before installing
   post_install_comment: A comment to print out after install
   post_install_command: eg. open the app
-  script: a script to be run if type is `command`
 ```
 
 ### command type
@@ -51,6 +50,29 @@ There are (for now) 5 types of programs with which to install:
 - gem  => `gem install {program}`
 - npm  => `npm -g install {program}`
 - command => `{script}`
+
+### Valid keys by type
+
+For brew/cask/gem/npm valid keys are:
+
+* :type
+* :mandatory
+* :install_if_not_interactive
+* :pre_install_comment
+* :post_install_comment
+* :post_install_command
+* :program
+
+For script/ruby_script valid keys are
+
+* :type
+* :mandatory
+* :install_if_not_interactive
+* :pre_install_comment
+* :post_install_comment
+* :post_install_command
+* :script
+* :custom_install_question
 
 ### Mandatory
 
@@ -69,9 +91,15 @@ Comments to print out before/after installation.
 
 Use this if you want to run a custom command after installation. Eg. `open /Applications/Alfred\ 3.app`
 
+### Custom install question
+
+For most of the types the install question is 'Installing #{program}?', but for scripts you can ask your own custom question.
+
 ### Writing your own scripts
 
 You can use `scripts` folder for writing your own scripts just as I did for ruby.
+
+
 
 ## Contributing
 

@@ -9,7 +9,7 @@ module InfinumSetup
     end
 
     def call
-      return unless programs.is_a?(Hash)
+      return unless team_programs.is_a?(Hash)
       programs.map(&:install)
     end
 

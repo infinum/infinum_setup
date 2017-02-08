@@ -1,6 +1,6 @@
 module InfinumSetup
   class Team < Base
-    def programs
+    def team_programs
       super(@options.team)
     end
   end
