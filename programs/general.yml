@@ -12,6 +12,36 @@ git:
   mandatory: true
   type: brew
   program: git
+coreutils:
+  mandatory: true
+  type: brew
+  program: coreutils
+htop-osx:
+  mandatory: true
+  type: brew
+  program: htop-osx
+curl:
+  mandatory: true
+  type: brew
+  program: curl
+wget:
+  mandatory: true
+  type: brew
+  program: wget
+bash:
+  mandatory: false
+  install_if_not_interactive: true
+  type: brew
+  program: bash
+zsh:
+  mandatory: false
+  install_if_not_interactive: true
+  type: brew
+  program: zsh
+fish:
+  mandatory: false
+  type: brew
+  program: fish
 rbenv:
   mandatory: true
   type: brew
@@ -52,6 +82,10 @@ ruby:
   mandatory: true
   type: script
   script: curl -L https://raw.github.com/infinum/infinum_setup/master/scripts/ruby.sh | sh
+python:
+  mandatory: false
+  type: brew
+  program: python
 z:
   pre_install_comment:  After a short learning phase, z will take you to the most 'recent' directory that matches ALL of the regexes given on the command line, in order.
   post_install_comment: "Please read 'brew info z' for how to enable it. How to use: https://github.com/rupa/z"
@@ -74,6 +108,13 @@ alfred:
   type: cask
   program: alfred
   post_install_command: open /Application/Alfred\ 3.app
+iterm2:
+  pre_install_comment: iTerm2 is a replacement for Terminal and the successor to iTerm
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: iterm2
+  post_install_command: open /Application/iTerm.app
 flycut:
   pre_install_comment: Clean and simple clipboard manager for developers
   mandatory: false
