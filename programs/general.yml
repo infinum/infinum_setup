@@ -59,6 +59,13 @@ z:
   install_if_not_interactive: true
   type: brew
   program: z
+git-wizard:
+  type: ruby_script
+  mandatory: false
+  install_if_not_interactive: true
+  pre_install_comment: This will help you setup your git
+  script: scripts/git_wizard.rb
+  custom_install_question: Run git wizard
 alfred:
   pre_install_comment: App for Mac OS X which boosts your efficiency with hotkeys, keywords, text expansion and more.
   post_install_comment: Please start alfred once, enable it and disable spotlight (http://apple.stackexchange.com/a/177987). Recommended to enable clipboard history

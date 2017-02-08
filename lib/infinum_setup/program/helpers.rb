@@ -15,25 +15,29 @@ module InfinumSetup
 
       def will_install?
         mandatory? ||
-          (!mandatory? && options.interactive?) ||
-          (!mandatory? && !options.interactive? && install_if_not_interactive?)
+          (!mandatory? && options.interactive) ||
+          (!mandatory? && !options.interactive && install_if_not_interactive?)
       end
 
       def skip_install?
-        !mandatory? && options.interactive? && !prompt.yes?(install_question)
+        !mandatory? && options.interactive && !prompt.yes?(install_question)
       end
 
       def install_question
         "Install #{name}"
       end
 
-      def execute(cmd = command)
-        if options.simulate
-          prompt.warn "#{name} -- #{cmd}"
-        else
-          prompt.warn cmd if options.verbose
-          puts `#{cmd}`
-        end
+      def execute_command(cmd = command)
+        options.simulate ? simulate(cmd) : execute(cmd)
+      end
+
+      def simulate(cmd)
+        prompt.warn "#{name} -- #{cmd}"
+      end
+
+      def execute(cmd)
+        prompt.warn cmd if options.verbose
+        puts `#{cmd}`
       end
     end
   end

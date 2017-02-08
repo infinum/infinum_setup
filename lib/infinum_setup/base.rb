@@ -37,6 +37,7 @@ module InfinumSetup
       when 'gem' then Program::Gem
       when 'npm' then Program::Npm
       when 'script' then Program::Script
+      when 'ruby_script' then Program::RubyScript
       end
     end
 

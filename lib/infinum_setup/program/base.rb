@@ -17,9 +17,9 @@ module InfinumSetup
         prompt_pre_install_comment
         return if skip_install?
         prompt_installing
-        execute
+        execute_command
         prompt_post_install_comment
-        execute(post_install_command) if post_install_command
+        execute_command(post_install_command) if post_install_command
       end
 
       def valid_keys
