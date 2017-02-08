@@ -2,13 +2,12 @@ module InfinumSetup
   module Program
     class Base
       include InfinumSetup::Program::Helpers
-      attr_reader :name, :settings, :options, :prompt
+      attr_reader :name, :settings, :options
 
-      def initialize(name, settings, options, prompt)
+      def initialize(name, settings, options)
         @name = name
         @settings = settings
         @options = options
-        @prompt = prompt
       end
 
       def install
@@ -30,7 +29,8 @@ module InfinumSetup
       end
 
       def valid?
-        settings.keys.all? { |key| valid_keys.include?(key.to_sym) }
+        return true if settings.keys.all? { |key| valid_keys.include?(key.to_sym) }
+        raise "#{name} -- Settings are not correct"
       end
 
       def mandatory?
@@ -57,6 +57,10 @@ module InfinumSetup
 
       def command
         raise NotImplementedError
+      end
+
+      def prompt
+        @prompt ||= TTY::Prompt.new
       end
     end
   end

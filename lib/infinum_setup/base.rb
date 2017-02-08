@@ -1,6 +1,6 @@
 module InfinumSetup
   class Base
-    def initialize(options)
+    def initialize(options = {})
       @options = options
     end
 
@@ -10,8 +10,22 @@ module InfinumSetup
 
     def call
       return unless programs.is_a?(Hash)
-      programs.map do |name, settings|
-        program_type(settings['type']).new(name, settings, options, prompt).install
+      programs.map(&:install)
+    end
+
+    def programs
+      @programs ||= team_programs.map do |name, settings|
+        program_type(settings['type'], name).new(name, settings, options)
+      end
+    end
+
+    def team_programs(team = 'general')
+      if InfinumSetup.dev?
+        YAML.load_file("programs/#{team}.yml")
+      else
+        YAML.load(
+          open("https://raw.github.com/infinum/infinum_setup/master/programs/#{team}.yml")
+        )
       end
     end
 
@@ -19,18 +33,7 @@ module InfinumSetup
 
     attr_reader :options
 
-    def programs(team = 'general')
-      @programs ||=
-        if InfinumSetup.dev?
-          YAML.load_file("programs/#{team}.yml")
-        else
-          YAML.load(
-            open("https://raw.github.com/infinum/infinum_setup/master/programs/#{team}.yml")
-          )
-        end
-    end
-
-    def program_type(type)
+    def program_type(type, name)
       case type
       when 'brew' then Program::Brew
       when 'cask' then Program::Cask
@@ -38,11 +41,9 @@ module InfinumSetup
       when 'npm' then Program::Npm
       when 'script' then Program::Script
       when 'ruby_script' then Program::RubyScript
+      else
+        raise "#{name} -- Type #{type} not recognized"
       end
-    end
-
-    def prompt
-      @prompt ||= TTY::Prompt.new
     end
 
     def interactive?
