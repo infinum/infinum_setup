@@ -14,6 +14,7 @@ module InfinumSetup
       end
 
       def script
+        prompt.warn "https://raw.github.com/infinum/infinum_setup/tree/master/#{settings['script']}"
         if InfinumSetup.dev?
           File.read(settings['script'])
         else
