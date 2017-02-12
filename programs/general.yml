@@ -98,7 +98,7 @@ git-wizard:
   mandatory: false
   install_if_not_interactive: true
   pre_install_comment: This will help you setup your git
-  script: git_wizard.rb
+  script: scropts/git_wizard.rb
   custom_install_question: Run git wizard
 alfred:
   pre_install_comment: App for Mac OS X which boosts your efficiency with hotkeys, keywords, text expansion and more.

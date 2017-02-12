@@ -17,7 +17,7 @@ module InfinumSetup
         if InfinumSetup.dev?
           File.read(settings['script'])
         else
-          open("https://raw.github.com/infinum/infinum_setup/master/scripts/#{settings['scripts']}.yml")
+          open("https://raw.github.com/infinum/infinum_setup/tree/master/#{settings['scripts']}")
         end
       end
 
