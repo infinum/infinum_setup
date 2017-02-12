@@ -1,104 +1,104 @@
-xcode-select:
-  mandatory: true
-  type: script
-  script: sudo xcode-select --install
-  post_install_comment: A window will popup asking you if you want to install only esential tools or the whole XCode.
-brew:
-  pre_install_comment: If after finishing with xcode installation the last line says "brew -- Installing" just hit enter!
-  mandatory: true
-  type: script
-  script: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-git:
-  mandatory: true
-  type: brew
-  program: git
-coreutils:
-  mandatory: true
-  type: brew
-  program: coreutils
-htop-osx:
-  mandatory: true
-  type: brew
-  program: htop-osx
-curl:
-  mandatory: true
-  type: brew
-  program: curl
-wget:
-  mandatory: true
-  type: brew
-  program: wget
-bash:
-  mandatory: false
-  install_if_not_interactive: true
-  type: brew
-  program: bash
-zsh:
-  mandatory: false
-  install_if_not_interactive: true
-  type: brew
-  program: zsh
-fish:
-  mandatory: false
-  type: brew
-  program: fish
-rbenv:
-  mandatory: true
-  type: brew
-  program: rbenv
-readline:
-  mandatory: true
-  type: brew
-  program: readline
-libyaml:
-  mandatory: true
-  type: brew
-  program: libyaml
-libffi:
-  mandatory: true
-  type: brew
-  program: libffi
-node:
-  mandatory: true
-  type: brew
-  program: node
-OhMyZsh:
-  pre_install_comment: A delightful community-driven framework for managing your zsh configuration.
-  post_install_comment: Take a look at https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview for plugins overview
-  mandatory: false
-  install_if_not_interactive: true
-  type: script
-  script: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-ssh-keygen:
-  pre_install_comment: Will run ssh-keygen
-  post_install_comment: Please add your public key to https://docs.google.com/spreadsheets/d/1Wo4OYVWsCW6I1IxrSzieLkmTiP6XjCjLtyoMmJpnkZg/edit
-  mandatory: false
-  install_if_not_interactive: true
-  type: script
-  script: ssh-keygen
-  custom_install_question: Setup ssh keys with ssh-keygen
-ruby:
-  pre_install_comment: This will install the lastest ruby version and add rbenv to your .bash_profile and .zshrc files. Go grab a coffee
-  mandatory: true
-  type: script
-  script: curl -L https://raw.github.com/infinum/infinum_setup/master/scripts/ruby.sh | sh
-python:
-  mandatory: false
-  type: brew
-  program: python
-z:
-  pre_install_comment:  After a short learning phase, z will take you to the most 'recent' directory that matches ALL of the regexes given on the command line, in order.
-  post_install_comment: "Please read 'brew info z' for how to enable it. How to use: https://github.com/rupa/z"
-  mandatory: false
-  install_if_not_interactive: true
-  type: brew
-  program: z
+# xcode-select:
+#   mandatory: true
+#   type: script
+#   script: sudo xcode-select --install
+#   post_install_comment: A window will popup asking you if you want to install only esential tools or the whole XCode.
+# brew:
+#   pre_install_comment: If after finishing with xcode installation the last line says "brew -- Installing" just hit enter!
+#   mandatory: true
+#   type: script
+#   script: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# git:
+#   mandatory: true
+#   type: brew
+#   program: git
+# coreutils:
+#   mandatory: true
+#   type: brew
+#   program: coreutils
+# htop-osx:
+#   mandatory: true
+#   type: brew
+#   program: htop-osx
+# curl:
+#   mandatory: true
+#   type: brew
+#   program: curl
+# wget:
+#   mandatory: true
+#   type: brew
+#   program: wget
+# bash:
+#   mandatory: false
+#   install_if_not_interactive: true
+#   type: brew
+#   program: bash
+# zsh:
+#   mandatory: false
+#   install_if_not_interactive: true
+#   type: brew
+#   program: zsh
+# fish:
+#   mandatory: false
+#   type: brew
+#   program: fish
+# rbenv:
+#   mandatory: true
+#   type: brew
+#   program: rbenv
+# readline:
+#   mandatory: true
+#   type: brew
+#   program: readline
+# libyaml:
+#   mandatory: true
+#   type: brew
+#   program: libyaml
+# libffi:
+#   mandatory: true
+#   type: brew
+#   program: libffi
+# node:
+#   mandatory: true
+#   type: brew
+#   program: node
+# OhMyZsh:
+#   pre_install_comment: A delightful community-driven framework for managing your zsh configuration.
+#   post_install_comment: Take a look at https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview for plugins overview
+#   mandatory: false
+#   install_if_not_interactive: true
+#   type: script
+#   script: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+# ssh-keygen:
+#   pre_install_comment: Will run ssh-keygen
+#   post_install_comment: Please add your public key to https://docs.google.com/spreadsheets/d/1Wo4OYVWsCW6I1IxrSzieLkmTiP6XjCjLtyoMmJpnkZg/edit
+#   mandatory: false
+#   install_if_not_interactive: true
+#   type: script
+#   script: ssh-keygen
+#   custom_install_question: Setup ssh keys with ssh-keygen
+# ruby:
+#   pre_install_comment: This will install the lastest ruby version and add rbenv to your .bash_profile and .zshrc files. Go grab a coffee
+#   mandatory: true
+#   type: script
+#   script: curl -L https://raw.github.com/infinum/infinum_setup/master/scripts/ruby.sh | sh
+# python:
+#   mandatory: false
+#   type: brew
+#   program: python
+# z:
+#   pre_install_comment:  After a short learning phase, z will take you to the most 'recent' directory that matches ALL of the regexes given on the command line, in order.
+#   post_install_comment: "Please read 'brew info z' for how to enable it. How to use: https://github.com/rupa/z"
+#   mandatory: false
+#   install_if_not_interactive: true
+#   type: brew
+#   program: z
 git-wizard:
   type: ruby_script
   mandatory: false
   install_if_not_interactive: true
   pre_install_comment: This will help you setup your git
-  script: scripts/git_wizard.rb
+  script: git_wizard.rb
   custom_install_question: Run git wizard
 alfred:
   pre_install_comment: App for Mac OS X which boosts your efficiency with hotkeys, keywords, text expansion and more.
