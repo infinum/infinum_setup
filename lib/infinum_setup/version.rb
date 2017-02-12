@@ -1,3 +1,3 @@
 module InfinumSetup
-  VERSION = '0.7.2'.freeze
+  VERSION = '0.7.4'.freeze
 end

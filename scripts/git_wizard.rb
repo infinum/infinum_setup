@@ -7,7 +7,7 @@ name = prompt.ask('Your git name')
 autocorrect = prompt.yes?('Turn on autocorrect')
 `git config --global help.autocorrect #{autocorrect ? 1 : 0}`
 
-editor = promtp.ask('Default editor command?(atom --wait, subl -n -w, vim)')
+editor = prompt.ask('Default editor command?(atom --wait, subl -n -w, vim)')
 `git config --global core.editor "#{editor}"`
 
 `git config --global push.default current`

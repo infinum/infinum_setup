@@ -9,16 +9,15 @@ module InfinumSetup
         script
       end
 
-      def execute
-        eval script
+      def execute(cmd)
+        eval cmd
       end
 
       def script
-        prompt.warn "https://raw.github.com/infinum/infinum_setup/tree/master/#{settings['script']}"
         if InfinumSetup.dev?
           File.read(settings['script'])
         else
-          open("https://raw.github.com/infinum/infinum_setup/tree/master/#{settings['script']}")
+          open("https://raw.github.com/infinum/infinum_setup/master/#{settings['script']}").read
         end
       end
 
