@@ -172,6 +172,12 @@ sublime-text:
   type: cask
   program: sublime-text
   # post_install_command: open /Applications/Sublime\ Text.app
+vscode:
+  mandatory: false
+  install_if_not_interactive: false
+  type: cask
+  program: visual-studio-code
+  # post_install_command: open /Visual\ Studio\ Code.app
 vlc:
   mandatory: false
   install_if_not_interactive: true
