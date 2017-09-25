@@ -1,8 +1,3 @@
-xcode-select:
-  mandatory: true
-  type: script
-  script: sudo xcode-select --install
-  post_install_comment: A window will popup asking you if you want to install only esential tools or the whole XCode.
 brew:
   pre_install_comment: If after finishing with xcode installation the last line says "brew -- Installing" just hit enter!
   mandatory: true
