@@ -6,8 +6,9 @@ If you feel there are programs missing please make a PR and I will be happy to m
 
 ## Installation
 
-Run the following script
+Run the following commands:
 
+    $ sudo xcode-select --install
     $ sudo gem install infinum_setup
 
 ## Usage
