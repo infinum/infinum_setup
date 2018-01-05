@@ -19,7 +19,7 @@ postgresql:
   mandatory: true
   type: brew
   program: postgresql
-  post_install_command: brew services start postgresql; createuser -s postgres
+  post_install_command: brew services start postgresql; sleep 5; createuser -s postgres
 sequel-pro:
   pre_install_comment: Sequel Pro is a fast, easy-to-use Mac database management application for working with MySQL databases.
   mandatory: false
