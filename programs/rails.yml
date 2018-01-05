@@ -39,7 +39,3 @@ gitkraken:
   install_if_not_interactive: true
   type: cask
   program: gitkraken
-pow:
-  mandatory: true
-  type: script
-  script: curl get.pow.cx | sh
