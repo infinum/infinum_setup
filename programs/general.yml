@@ -103,6 +103,11 @@ alfred:
   type: cask
   program: alfred
   post_install_command: open /Applications/Alfred\ 3.app
+slack:
+  mandatory: true
+  type: cask
+  program: slack
+  post_install_command: open /Applications/Slack.app
 iterm2:
   pre_install_comment: iTerm2 is a replacement for Terminal and the successor to iTerm
   mandatory: false
