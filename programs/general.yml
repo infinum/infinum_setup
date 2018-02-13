@@ -65,7 +65,7 @@ OhMyZsh:
   type: script
   script: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 ssh-keygen:
-  pre_install_comment: Will run ssh-keygen
+  pre_install_comment: Will run ssh-keygen. If it takes more than a minute just hit enter!
   post_install_comment: Please add your public key to https://docs.google.com/spreadsheets/d/1Wo4OYVWsCW6I1IxrSzieLkmTiP6XjCjLtyoMmJpnkZg/edit
   mandatory: false
   install_if_not_interactive: true
