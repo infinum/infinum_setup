@@ -33,9 +33,3 @@ postico:
   install_if_not_interactive: true
   type: cask
   program: postico
-gitkraken:
-  pre_install_comment: Modern Git GUI
-  mandatory: false
-  install_if_not_interactive: true
-  type: cask
-  program: gitkraken
