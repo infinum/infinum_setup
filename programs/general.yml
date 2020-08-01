@@ -38,7 +38,8 @@ fish:
   type: brew
   program: fish
 rbenv:
-  mandatory: true
+  mandatory: false
+  install_if_not_interactive: true
   type: brew
   program: rbenv
 readline:
@@ -54,7 +55,8 @@ libffi:
   type: brew
   program: libffi
 node:
-  mandatory: true
+  mandatory: false
+  install_if_not_interactive: true
   type: brew
   program: node
 OhMyZsh:
