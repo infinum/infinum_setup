@@ -2,7 +2,7 @@ brew:
   pre_install_comment: If after finishing with xcode installation the last line says "brew -- Installing" just hit enter!
   mandatory: true
   type: script
-  script: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  script: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 git:
   mandatory: true
   type: brew
