@@ -6,7 +6,7 @@ module InfinumSetup
       end
 
       def command
-        "brew cask install #{program}"
+        "brew install #{program}"
       end
 
       def program
