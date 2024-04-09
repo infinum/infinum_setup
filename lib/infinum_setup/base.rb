@@ -24,7 +24,7 @@ module InfinumSetup
         YAML.load_file("programs/#{team}.yml")
       else
         YAML.load(
-          open("https://raw.github.com/infinum/infinum_setup/master/programs/#{team}.yml")
+          URI.open("https://raw.github.com/infinum/infinum_setup/master/programs/#{team}.yml")
         )
       end
     end
