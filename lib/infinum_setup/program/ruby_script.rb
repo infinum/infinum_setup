@@ -17,7 +17,7 @@ module InfinumSetup
         if InfinumSetup.dev?
           File.read(settings['script'])
         else
-          open("https://raw.github.com/infinum/infinum_setup/master/#{settings['script']}").read
+          URI.open("https://raw.github.com/infinum/infinum_setup/master/#{settings['script']}").read
         end
       end
 
