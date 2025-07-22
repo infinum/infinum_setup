@@ -1,0 +1,36 @@
+intellij-idea:
+  pre_install_comment: Installs IntelliJ IDEA – the primary IDE for Java development
+  mandatory: true
+  install_if_not_interactive: true
+  type: cask
+  program: intellij-idea
+rancher:
+  pre_install_comment: Used for container orchestration and testing in local dev setup
+  mandatory: true
+  install_if_not_interactive: true
+  type: cask
+  program: rancher
+awscli:
+  pre_install_comment: Installs AWS CLI – used to interact with AWS services from the terminal
+  mandatory: true
+  install_if_not_interactive: true
+  type: brew
+  program: awscli
+jq:
+  pre_install_comment: Installs jq – tool for working with JSON via CLI
+  mandatory: false
+  install_if_not_interactive: true
+  type: brew
+  program: jq
+httpie:
+  pre_install_comment: Installs HTTPie – a user-friendly command-line HTTP client
+  mandatory: false
+  install_if_not_interactive: true
+  type: brew
+  program: httpie
+dbeaver:
+  pre_install_comment: Installs DBeaver – universal database client
+  mandatory: false
+  install_if_not_interactive: true
+  type: cask
+  program: dbeaver-community
