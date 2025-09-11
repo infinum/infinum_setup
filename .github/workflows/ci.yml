@@ -22,6 +22,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: false
           load: true
+          target: ci
           tags: infinum-setup
           cache-from: type=gha
           cache-to: type=gha,mode=max
