@@ -1,4 +1,4 @@
-FROM debian:trixie-slim@sha256:c2880112cc5c61e1200c26f106e4123627b49726375eb5846313da9cca117337
+FROM debian:trixie-slim@sha256:c2880112cc5c61e1200c26f106e4123627b49726375eb5846313da9cca117337 AS base
 
 ARG RUBY_VERSION=2.6.10
 ARG OPENSSL_VERSION=1.1.1u
@@ -68,3 +68,6 @@ ENV SSL_CERT_DIR=/etc/ssl/certs
 ADD infinum_setup.gemspec Gemfile ./
 ADD lib/infinum_setup/version.rb ./lib/infinum_setup/version.rb
 RUN bundle install
+
+FROM base AS ci
+COPY . ./

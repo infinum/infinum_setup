@@ -2,7 +2,8 @@ name: infinum-setup
 
 services:
   runner:
-    build: .
+    build:
+      target: base
     stdin_open: true
     tty: true
     command: /bin/bash
