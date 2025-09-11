@@ -1,0 +1,10 @@
+name: infinum-setup
+
+services:
+  runner:
+    build: .
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+    volumes:
+      - .:/usr/src
