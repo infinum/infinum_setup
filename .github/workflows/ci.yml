@@ -1,0 +1,29 @@
+name: Build test image and run checks
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  build-test-image-and-run-checks:
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build app image
+        uses: docker/build-push-action@v6
+        with:
+          builder: ${{ steps.buildx.outputs.name }}
+          push: false
+          load: true
+          tags: infinum-setup
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Run CI checks
+        run: docker run infinum-setup bin/ci-checks
