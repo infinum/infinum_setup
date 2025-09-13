@@ -16,6 +16,13 @@ awscli:
   install_if_not_interactive: true
   type: brew
   program: awscli
+sdkman:
+  pre_install_comment: Installs SDKMAN – a tool for managing parallel versions of multiple SDKs (JDK, Maven, Gradle, etc.)
+  mandatory: true
+  install_if_not_interactive: true
+  type: script
+  script: curl -s "https://get.sdkman.io" | bash
+  post_install_comment: After installation, restart your terminal or run 'source "$HOME/.sdkman/bin/sdkman-init.sh"' to start using sdkman
 jq:
   pre_install_comment: Installs jq – tool for working with JSON via CLI
   mandatory: false
