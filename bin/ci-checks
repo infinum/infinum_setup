@@ -4,5 +4,9 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+echo "=========== bundle audit ==========="
+time bundle exec bundle-audit update --quiet
+time bundle exec bundle-audit check
+
 echo "=========== RSpec ==========="
-bundle exec rspec
+time bundle exec rspec
